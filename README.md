@@ -1,5 +1,7 @@
 # Smart-Scale website — oud vs. nieuw
 
+> **Werk je met Claude en ben je nieuw hier? Begin bij [LEES-DIT-EERST.md](LEES-DIT-EERST.md).**
+
 Twee versies van de Smart-Scale website naast elkaar, om te vergelijken.
 
 - **`oude-website/`** — de huidige live site (smart-scale.ai). Leidt met chatbots, voicebots en
