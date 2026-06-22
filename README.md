@@ -12,13 +12,21 @@ Beide mappen zijn complete statische sites (HTML/CSS/JS, geen build-stap).
 
 ## Lokaal bekijken
 
-Serveer een map als webroot (niet openen als los bestand, want de asset-paden zijn root-absoluut):
+Met Node (aanbevolen):
+
+```bash
+npm install
+npm start        # http://localhost:8000
+```
+
+Of met Python:
 
 ```bash
 cd nieuwe-website
 python -m http.server 8000
-# http://localhost:8000
 ```
+
+Niet openen als los bestand: de asset-paden zijn root-absoluut.
 
 Zie [`CLAUDE.md`](CLAUDE.md) voor de volledige context: positionering, schrijfstijl, techniek,
 de belangrijke valkuil met asset-paden, en de status van het redesign.

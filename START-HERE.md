@@ -10,14 +10,16 @@ Smart-Scale is een **AI-bedrijf**. We helpen bedrijven AI te implementeren. Het 
 AI op maat (chatbots, koppelingen, automatisering).
 
 De huidige live site leidt nog met chatbots/voicebots. We zetten hem om naar een site die leidt
-met "AI-bedrijf dat websites bouwt". De **homepage is al herschreven**, de rest van de site nog
-niet. Daar kom jij in beeld.
+met "AI-bedrijf dat bedrijven helpt AI te implementeren", met websites als hoofdaanbod. De **hele
+site is in eerste versie herbouwd** (alle pagina's staan). Nu gaat het vooral om verfijnen: copy,
+foto's en de laatste afronding. Daar kom jij in beeld.
 
 ## De twee mappen
 
 - `oude-website/` — wat er nu live staat (smart-scale.ai). Niet aan werken, puur ter referentie.
-- `nieuwe-website/` — **hier werk je in.** De herziene homepage staat er al; de andere pagina's
-  zijn nog de oude en moeten vervangen worden.
+- `nieuwe-website/` — **hier werk je in.** Alle hoofdpagina's zijn herbouwd (Home, Websites,
+  Voice agents, AI op maat, Werk, Over ons, Contact). De oude losse pagina's (chatbots, solutions,
+  demo, voicebots) staan er ook nog en moeten opgeruimd of doorverwezen worden.
 
 Beide zijn complete statische sites (losse HTML/CSS/JS, geen build-stap, geen framework).
 
@@ -33,15 +35,19 @@ Beide zijn complete statische sites (losse HTML/CSS/JS, geen build-stap, geen fr
 ## Lokaal draaien
 
 De asset-paden zijn root-absoluut (`/style.css`, `/images/...`). Open de map dus **niet** als los
-bestand (`file://`), maar serveer hem als webroot:
+bestand (`file://`), maar serveer hem als webroot. Met Node:
+
+```bash
+npm install      # eenmalig
+npm start        # http://localhost:8000
+```
+
+Of zonder Node:
 
 ```bash
 cd nieuwe-website
 python -m http.server 8000
-# open http://localhost:8000
 ```
-
-(Werkt ook met `npx serve` of een andere statische server.)
 
 ## Drie regels die je niet moet vergeten
 
@@ -65,11 +71,14 @@ Sommige dingen kun je niet zelf invullen. Verzamel deze en vraag Joshua:
 
 ## Waar je nu kunt beginnen
 
-De drie meest waardevolle eerste taken (details in `PRD.md`):
+De pagina's staan al. De meest waardevolle eerste taken nu (volledige lijst in `PRD.md`):
 
-1. Bouw de **Websites**-pagina (`/websites`) — dat is het hoofdaanbod en het belangrijkste.
-2. Vervang de oude subpagina's die nog in de nav staan (`/voice-agents`, `/ai-op-maat`,
-   `/werk`, `/over-ons`, `/contact`) of laat ze netjes naar bestaande inhoud wijzen.
-3. Loop de **homepage-copy** nog een keer na en zet echte screenshots in de Werk-sectie.
+1. **Loop alle copy na** met Joshua. De teksten zijn een eerste versie; hij is kritisch op toon.
+2. **Over ons:** echte 1-regel bio's en teamfoto's toevoegen.
+3. **Portfolio:** meer klanten zodra Joshua toestemming heeft (alleen Blue Shield is nu
+   bevestigd). Gebruik `npm run shots` om nieuwe screenshots te maken.
+4. **Oude pagina's** (`chatbots/`, `solutions/`, `demo/`, `voicebots/`) opruimen of doorverwijzen.
+5. **Voor livegang:** echte Lighthouse-ronde op de gedeployde versie, `og:image` checken, en de
+   nieuwe site terug in de live-repo zetten (zie CLAUDE.md, sectie Deploy).
 
 Veel plezier. Bij twijfel: houd het simpel, duidelijk en snel.
