@@ -22,16 +22,21 @@ Een herziene smart-scale.ai die:
 ## 2. Huidige staat
 
 Klaar (in `nieuwe-website/`):
-- **Homepage** herschreven: nieuwe hero, nieuwe structuur en teksten, nieuwe nav en footer.
-  - Hero eyebrow `AI-bedrijf`, H1 "We zetten AI in waar het je bedrijf echt iets oplevert."
-  - Secties: Wat we doen -> Waarom met AI -> Werk -> Hoe het werkt -> Over ons -> FAQ -> CTA.
-  - Nav: Websites, Voice agents, AI op maat, Werk, Over ons, Contact.
+- **Homepage** herschreven (hero, structuur, teksten, nav, footer), met JSON-LD (Organization)
+  en echte screenshot-tegels in de Werk-sectie.
+- **Alle hoofdpagina's gebouwd:** Websites, Voice agents, AI op maat, Werk, Over ons, Contact.
+  Consistente header/footer, root-absolute paden, per pagina unieke title + meta + canonical.
+- **SEO-basis:** `sitemap.xml` en `robots.txt` toegevoegd.
+- Geverifieerd met Playwright: alle pagina's status 200, CSS laadt, geen kapotte beelden,
+  geen mislukte requests.
 
-Nog oud / nog te doen:
-- De subpagina's (`chatbots/`, `voicebots/`, `solutions/`, `demo/`, de drie demo's, `legal/`)
-  zijn nog de oude versie en passen qua tekst niet bij de nieuwe positionering.
-- De nieuwe nav linkt naar `/websites`, `/voice-agents`, `/ai-op-maat`, `/werk`, `/over-ons`,
-  `/contact`. Die pagina's bestaan **nog niet** (geven nu 404).
+Nog te doen (zie backlog):
+- De oude losse pagina's (`chatbots/`, `voicebots/`, `solutions/`, `demo/`) staan er nog en zijn
+  niet meer in de nav. Opruimen of laten doorverwijzen.
+- Copy laten checken door Joshua; team-bio's (1 regel) en echte teamfoto's; meer portfolio met
+  toestemming.
+- Redirects voor oude URL's; extra structured data (Breadcrumb/FAQ); echte Lighthouse-ronde;
+  `og:image` controleren.
 
 ---
 

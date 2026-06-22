@@ -88,13 +88,15 @@ De live site staat op Hostinger als statische site. Deployen = de inhoud van de 
 ## Status van `nieuwe-website/`
 
 Klaar:
-- Homepage: nieuwe positionering, nieuwe structuur en teksten, nieuwe nav en footer.
+- Homepage: nieuwe positionering, structuur, teksten, nav, footer + JSON-LD (Organization).
+- Alle hoofdpagina's gebouwd: Websites, Voice agents, AI op maat, Werk, Over ons, Contact.
+- Werk-sectie met echte screenshot-tegels (Blue Shield + demo's).
+- SEO-basis: `sitemap.xml` en `robots.txt`.
+- Geverifieerd met Playwright (alle pagina's 200, CSS laadt, geen kapotte beelden).
 
 Nog te doen:
-- Dienstpagina's bouwen: `/websites`, `/voice-agents`, `/ai-op-maat` (links bestaan al in de nav,
-  pagina's nog niet).
-- `/werk`, `/over-ons`, `/contact` als echte pagina's.
-- Oude pagina's (chatbots, voicebots, solutions, demo) opschonen of vervangen.
-- Echte screenshots in de Werk-sectie (nu tekst), 1-regel bio per teamlid.
-- SEO: `sitemap.xml`, `robots.txt`, structured data; redirects voor oude URL's.
-- Lighthouse-check per pagina.
+- Oude losse pagina's (chatbots, voicebots, solutions, demo) opschonen of laten doorverwijzen.
+- Copy laten checken door Joshua; 1-regel bio per teamlid; echte teamfoto's.
+- Meer portfolio met toestemming van klanten.
+- Redirects voor oude URL's; extra structured data (Breadcrumb/FAQ); echte Lighthouse-ronde.
+- `og:image` controleren (`smart-scale-logo.png` bestaat mogelijk niet).
