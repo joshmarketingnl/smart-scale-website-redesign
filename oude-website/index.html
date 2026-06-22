@@ -1,0 +1,700 @@
+﻿<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartScale | Automatisering, chatbots en voicebots voor afspraken</title>
+  <meta name="description" content="SmartScale bouwt een conversie-first site met AI chat en voice die binnen 1 minuut reageert, afspraken vastlegt en opvolging automatiseert voor MKB.">
+  <meta name="keywords" content="AI chat, voicebot, website automatisering, conversie, opvolging, WhatsApp intake, MKB leads, afspraken boeken">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SmartScale">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:title" content="SmartScale | Automatisering, chatbots en voicebots voor afspraken">
+  <meta property="og:description" content="SmartScale bouwt een conversie-first site met AI chat en voice die binnen 1 minuut reageert, afspraken vastlegt en opvolging automatiseert voor MKB.">
+  <meta property="og:url" content="https://smart-scale.ai/">
+  <meta property="og:image" content="https://smart-scale.ai/images/smart-scale-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SmartScale | Automatisering, chatbots en voicebots voor afspraken">
+  <meta name="twitter:description" content="SmartScale bouwt een conversie-first site met AI chat en voice die binnen 1 minuut reageert, afspraken vastlegt en opvolging automatiseert voor MKB.">
+  <meta name="twitter:image" content="https://smart-scale.ai/images/smart-scale-logo.png">
+  <link rel="canonical" href="https://smart-scale.ai/">  <style id="critical-css">
+:root {
+  --font-display: "Poppins", "Inter", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", "Poppins", system-ui, -apple-system, sans-serif;
+  --bg: #0d0b06;
+  --card: #16130d;
+  --accent: #fbbf24;
+  --accent-2: #f59e0b;
+  --text: #f5efd7;
+  --muted: #f5efd7;
+  --text-soft: #f5efd7;
+  --border: rgba(255, 255, 255, 0.08);
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.28);
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 18px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 56px;
+  --dur-ui: 220ms;
+  --max-width: 1200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: radial-gradient(120% 120% at 10% 10%, rgba(251, 191, 36, 0.08), transparent 45%),
+    radial-gradient(110% 90% at 90% 0%, rgba(56, 189, 248, 0.08), transparent 50%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+p {
+  margin: 0 0 var(--space-4);
+  color: var(--text-soft);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #f5f1e1;
+}
+
+h1 {
+  font-size: clamp(38px, 5vw, 64px);
+}
+
+.shell {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.section {
+  padding: clamp(48px, 9vw, 104px) 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.lede {
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-soft);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(10px);
+  background: rgba(13, 11, 6, 0.82);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.brand-mark {
+  width: 190px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  object-fit: contain;
+  box-shadow: var(--shadow);
+}
+
+.nav {
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  position: relative;
+}
+
+.nav a {
+  font-weight: 600;
+  font-size: 14px;
+  color: #f5f1e1;
+  padding: 8px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.nav-cta {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 11px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #0d0b06;
+  background: var(--accent);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--dur-ui) ease, box-shadow var(--dur-ui) ease, background var(--dur-ui) ease, color var(--dur-ui) ease, border-color var(--dur-ui) ease;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn.large {
+  padding: 13px 20px;
+  font-size: 16px;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.cta-actions .btn {
+  flex: 0 0 auto;
+  width: auto;
+  align-self: flex-start;
+}
+
+.hero {
+  padding: clamp(60px, 12vw, 120px) 0 clamp(40px, 8vw, 96px);
+}
+
+.hero-grid {
+  display: grid;
+  gap: clamp(32px, 4vw, 64px);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: center;
+}
+
+.hero-visual {
+  position: relative;
+  padding: var(--space-5);
+}
+
+.panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.sparkles {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(40% 40% at 20% 20%, rgba(251, 191, 36, 0.14), transparent 50%),
+    radial-gradient(40% 40% at 80% 10%, rgba(56, 189, 248, 0.12), transparent 50%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.stat-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-top: var(--space-5);
+}
+
+.stat {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.stat .label {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.chat-ui {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: #0d0b06;
+  justify-content: flex-start;
+  text-align: left;
+  background: #fbbf24 !important;
+}
+
+.card .chat-header {
+  color: #fff !important;
+  background: transparent !important;
+  padding-bottom: 20px !important;
+}
+
+.chat-dots span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.bubble {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.bubble.inbound {
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.bubble.outbound {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.bubble.accent {
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--accent);
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+.bubble .quick {
+  display: inline-flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--card);
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    display: none;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+    min-width: 220px;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    gap: 0;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    margin: 4px 0;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+}
+  </style>
+
+  <link rel="preload" href="/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/images/smart-scale-logo.svg" alt="SmartScale logo" width="190" height="39">
+        
+      </a>
+      <nav class="nav" aria-label="Hoofdmenu">
+        <button class="nav-toggle" aria-expanded="false" aria-label="Menu openen"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/solutions">Oplossingen</a></li>
+          <li><a href="/chatbots">Chatbots</a></li>
+          <li><a href="/voicebots">Voicebots</a></li>
+          <li class="nav-item nav-item-demo">
+            <a href="#" aria-haspopup="true">Demo</a>
+            <div class="nav-submenu">
+              <a href="/shopify-demo">Shopify Demo</a>
+              <a href="/garage-demo">Garage Demo</a>
+              <a href="/schoonheid-demo">Schoonheid Demo</a>
+            </div>
+          </li>
+          <li><a href="/demo">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn ghost" href="https://wa.me/+31683004208" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Book een call</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow">Met AI-gedreven marketing en sales</div>
+          <h1 data-typewriter data-typewriter-text="Meer klanten,
+minder werk.">
+            Meer klanten,<br class="type-line">minder werk.
+          </h1>
+          <p class="lede">SmartScale bouwt een conversie-first site met AI chat en voice die binnen 1 minuut reageert en afspraken vastlegt. We automatiseren opvolging en handwerk, jij houdt tijd over.</p>
+          <div class="cta-actions">
+            <a class="btn large" href="https://wa.me/+31683004208" target="_blank" rel="noopener">WhatsApp voor intake</a>
+            <a class="btn secondary large" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Book een call</a>
+          </div>
+          <div class="stat-grid">
+            <div class="stat" data-reveal>
+              <div class="label">Snel antwoord</div>
+              <p>Lead krijgt binnen 1 minuut reactie via chat of WhatsApp.</p>
+            </div>
+            <div class="stat" data-reveal>
+              <div class="label">Website die converteert</div>
+              <p>Heldere belofte, CTA's en social proof gericht op afspraken.</p>
+            </div>
+            <div class="stat" data-reveal>
+              <div class="label">Opvolging geregeld</div>
+              <p>Reminders, bevestigingen en handover zonder losse tools.</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="sparkles" aria-hidden="true"></div>
+          <div class="panel" data-parallax>
+            <img src="/images/hero-automation.svg" alt="Visualisatie van een geautomatiseerde flow" width="960" height="520" style="width:100%; border-radius:12px;">
+            <div class="card" style="margin-top: -36px; max-width: 320px;" data-reveal>
+              <div class="chat-header" style="background: rgb(251, 191, 36); color: rgb(0, 0, 0); padding-bottom: 20px;">
+                <div class="jm-header" style="display: flex; align-items: flex-start; gap: 8px; justify-content: flex-start; text-align: left; color: rgb(255, 255, 255) !important;">
+                  <img class="jm-header__img" src="/images/joshua-profiel-48.jpg" srcset="/images/joshua-profiel-48.jpg 1x, /images/joshua-profiel-96.jpg 2x" alt="Joshua" width="48" height="48" loading="lazy" decoding="async" style="width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:center;border:1px solid rgba(255,255,255,0.08);">
+                  <div style="color:#ffffff !important;font-weight:600;font-size:18px;line-height:1.2;">
+                    Joshua
+                    <div style="color:#ffffff !important;font-size:13px;font-weight:400;margin-top:2px;line-height:1.2;">
+                      Stel gerust uw vragen
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-ui">
+                <div class="bubble inbound">Hoi! Zal ik je via WhatsApp helpen met vragen of meteen een afspraak?</div>
+                <div class="bubble accent">Ik wil graag wat vragen.</div>
+                <div class="bubble inbound">
+                  Top! Klik hieronder, dan help ik je direct via WhatsApp.
+                  <div class="quick" style="margin-top: var(--space-2);">
+                    <a class="btn small" href="https://wa.me/+31683004208" target="_blank" rel="noopener">Open WhatsApp</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gradient-surface">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Probleem</div>
+          <h2>Waarom leads nu blijven liggen.</h2>
+          <p>MKB-teams missen kansen omdat de website onduidelijk is, opvolging te laat komt en WhatsApp uren kost. We bouwen een systeem dat deze drie gaten dicht.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="card" data-reveal>
+            <h3>Website converteert niet</h3>
+            <p>Bezoekers snappen niet binnen 5 seconden wat je doet en waarom ze moeten plannen.</p>
+          </article>
+          <article class="card" data-reveal>
+            <h3>Leads wachten te lang</h3>
+            <p>Reactie komt pas uren later; intussen zijn ze door naar een ander.</p>
+          </article>
+          <article class="card" data-reveal>
+            <h3>Te veel handwerk</h3>
+            <p>WhatsApp, mail en agenda kosten je uren per week terwijl afspraken blijven liggen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell dual">
+        <div>
+          <div class="eyebrow">Oplossing</div>
+          <h2>Een systeem voor website, intake en opvolging.</h2>
+          <p>We combineren een conversie-first site, AI chat en voice en opvolg-automatisering. Geen tool-chaos: we zetten het voor je klaar en stemmen grenzen en handovers af.</p>
+          <ul class="list-check">
+            <li>Meer goede klanten: duidelijk aanbod en directe CTA's.</li>
+            <li>Geen gemiste leads: binnen 1 minuut reactie en afspraakvoorstel.</li>
+            <li>Minder tijd kwijt: opvolging, reminders en bevestigingen geautomatiseerd.</li>
+          </ul>
+          <div class="cta-actions">
+            <a class="btn" href="https://wa.me/+31683004208" target="_blank" rel="noopener">WhatsApp intake</a>
+            <a class="btn secondary" href="/solutions">Bekijk oplossingen</a>
+          </div>
+        </div>
+        <div class="usecase-grid">
+          <article class="card" data-reveal>
+            <h3>Conversie-first site</h3>
+            <p>Korte belofte, bewijs en CTA's die afspraken of gesprekken starten.</p>
+          </article>
+          <article class="card" data-reveal>
+            <h3>AI intake die past</h3>
+            <p>Chat en voice met scripts in jouw tone-of-voice. Vraagt door, biedt tijden, schakelt menselijk door.</p>
+          </article>
+          <article class="card" data-reveal>
+            <h3>Opvolging en reminders</h3>
+            <p>Bevestigingen via WhatsApp of e-mail, statusupdates naar je team en geen losse tickets.</p>
+          </article>
+          <article class="card" data-reveal>
+            <h3>Grip en inzicht</h3>
+            <p>Duidelijke logging en afspraken over grenzen. Geen black box, wel meetbare stappen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gradient-surface">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Werkwijze</div>
+          <h2>Van intake naar live zonder ruis.</h2>
+          <p>Korte sprints, duidelijke demo's en heldere grenzen. Jij weet elke stap wat er gebeurt en wat het oplevert.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item" data-reveal>
+            <div class="marker">1</div>
+            <div>
+              <h3>Korte kennismaking</h3>
+              <p>WhatsApp of call. Binnen 24 uur duidelijk wat je wilt en wat kan.</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-reveal>
+            <div class="marker">2</div>
+            <div>
+              <h3>Analyse en plan</h3>
+              <p>We vertalen jouw funnel, bepalen copy, flows en koppelingen.</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-reveal>
+            <div class="marker">3</div>
+            <div>
+              <h3>Bouwen en scripts</h3>
+              <p>Conversie-site, chat en voice met afgestemde prompts en grenzen.</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-reveal>
+            <div class="marker">4</div>
+            <div>
+              <h3>Testen en lanceren</h3>
+              <p>Samen valideren, handover afspraken en bevestigingen live.</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-reveal>
+            <div class="marker">5</div>
+            <div>
+              <h3>Meten en verbeteren</h3>
+              <p>We volgen reacties, scherpen prompts aan en voegen koppelingen toe waar dat meer oplevert.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell dual">
+        <div>
+          <div class="eyebrow">Use-cases</div>
+          <h2>Voor MKB dat meer klanten wil zonder extra personeel.</h2>
+          <p>We doen dit met conversiegerichte marketing en AI-gestuurde intake/opvolging.</p>
+          <ul class="list-check">
+            <li>Conversiegerichte marketing: pagina's en ads die meteen aanzetten tot actie.</li>
+            <li>AI intake & opvolging: chat/e-mail die vragen vangt en voorstellen en bevestigingen stuurt.</li>
+          </ul>
+          <div class="cta-actions">
+            <a class="btn" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Book een call</a>
+            <a class="btn secondary" href="https://wa.me/+31683004208" target="_blank" rel="noopener">Vraag direct aan ons</a>
+          </div>
+        </div>
+        <div class="usecase-grid">
+          <article class="card" data-reveal>
+            <img src="/images/usecase-service.svg" alt="Service flow visual" width="360" height="240" style="width:100%; border-radius:12px;" loading="lazy">
+            <h3>AI intake & opvolging</h3>
+            <p>Chat en e-mail vangen vragen, sturen voorstellen en bevestigen afspraken.</p>
+          </article>
+          <article class="card" data-reveal>
+            <img src="/images/usecase-ecom.svg" alt="Marketing flow visual" width="360" height="240" style="width:100%; border-radius:12px;" loading="lazy">
+            <h3>Conversiegerichte marketing</h3>
+            <p>Propositie scherp, pagina's snel, ads die verkeer omzetten in klanten.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="cta-band">
+          <div class="section-head" style="margin-bottom: var(--space-4);">
+            <div class="eyebrow">Klaar voor groei</div>
+            <h2>Wil je weten wat dit voor jouw bedrijf kan doen?</h2>
+            <p>Stuur ons een appje of Book een call. Geen verkooppitch, wel direct zien hoe we geen lead laten liggen.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn large" href="https://wa.me/+31683004208" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn secondary large" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Book een call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div>
+        <div class="brand">
+          <img class="brand-mark" src="/images/smart-scale-logo.svg" alt="SmartScale logo" width="190" height="39">
+          
+        </div>
+        <p>AI chat, voice en automatisering die afspraken boeken en support verlichten. Altijd afgestemd op jouw processen.</p>
+        <ul class="footer-contact">
+          <li><a href="mailto:info@smart-scale.ai">info@smart-scale.ai</a></li>
+          <li><a href="https://wa.me/+31683004208" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Paginas</h3>
+        <ul class="footer-links">
+          <li><a href="/solutions">Oplossingen</a></li>
+          <li><a href="/chatbots">Chatbots</a></li>
+          <li><a href="/voicebots">Voicebots</a></li>
+          <li><a href="/shopify-demo">Shopify demo</a></li>
+          <li><a href="/garage-demo">Garage demo</a></li>
+          <li><a href="/schoonheid-demo">Schoonheid demo</a></li>
+          <li><a href="/demo">Demo / contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <ul class="footer-legal">
+          <li><a href="/legal#privacy">Privacy</a></li>
+          <li><a href="/legal#cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
+
+
