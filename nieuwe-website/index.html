@@ -1,24 +1,24 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Smart-Scale | AI-bedrijf: websites, voice agents en automatisering</title>
-  <meta name="description" content="Smart-Scale is een AI-bedrijf. We helpen bedrijven AI te implementeren, van een professionele website tot voice agents en automatisering.">
-  <meta name="keywords" content="AI-bedrijf, AI implementeren, website laten maken, professionele website, voice agent, AI automatisering, MKB, Smart-Scale">
+  <title>Smart-Scale | AI-bedrijf: voicebots, websites en automatisering</title>
+  <meta name="description" content="Smart-Scale is een AI-bedrijf. We bouwen AI-voicebots die de telefoon aannemen, snelle professionele websites en automatiseringen die je opvolging slimmer maken.">
+  <meta name="keywords" content="AI-bedrijf, AI voicebot, AI-telefonist, website laten maken, professionele website, AI automatisering, AI implementeren, MKB, Smart-Scale">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Smart-Scale">
   <meta property="og:locale" content="nl_NL">
-  <meta property="og:title" content="Smart-Scale | AI-bedrijf: websites, voice agents en automatisering">
-  <meta property="og:description" content="Smart-Scale is een AI-bedrijf. We helpen bedrijven AI te implementeren, van een professionele website tot voice agents en automatisering.">
+  <meta property="og:title" content="Smart-Scale | AI-bedrijf: voicebots, websites en automatisering">
+  <meta property="og:description" content="AI-voicebots die de telefoon aannemen, snelle professionele websites en automatiseringen die je opvolging slimmer maken.">
   <meta property="og:url" content="https://smart-scale.ai/">
   <meta property="og:image" content="https://smart-scale.ai/images/smart-scale-logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Smart-Scale | AI-bedrijf: websites, voice agents en automatisering">
-  <meta name="twitter:description" content="Smart-Scale is een AI-bedrijf. We helpen bedrijven AI te implementeren.">
+  <meta name="twitter:title" content="Smart-Scale | AI-bedrijf: voicebots, websites en automatisering">
+  <meta name="twitter:description" content="AI-voicebots, snelle websites en automatisering door Smart-Scale.">
   <meta name="twitter:image" content="https://smart-scale.ai/images/smart-scale-logo.png">
   <link rel="canonical" href="https://smart-scale.ai/">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Smart-Scale","url":"https://smart-scale.ai/","logo":"https://smart-scale.ai/images/smart-scale-logo.png","email":"info@smart-scale.ai","description":"Smart-Scale is een AI-bedrijf dat bedrijven helpt AI te implementeren, van professionele websites tot voice agents en automatisering."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Smart-Scale","url":"https://smart-scale.ai/","logo":"https://smart-scale.ai/images/smart-scale-logo.png","email":"info@smart-scale.ai","description":"Smart-Scale is een AI-bedrijf dat bedrijven helpt AI te implementeren, van AI-voicebots tot professionele websites en automatisering."}</script>
   <style id="critical-css">
 :root {
   --font-display: "Poppins", "Inter", system-ui, -apple-system, sans-serif;
@@ -46,6 +46,8 @@
   --space-7: 40px;
   --space-8: 56px;
   --dur-ui: 220ms;
+  --dur-enter: 420ms;
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
   --max-width: 1200px;
 }
 
@@ -58,12 +60,13 @@
 body {
   margin: 0;
   font-family: var(--font-body);
-  background: radial-gradient(120% 120% at 10% 10%, rgba(251, 191, 36, 0.08), transparent 45%),
-    radial-gradient(110% 90% at 90% 0%, rgba(56, 189, 248, 0.08), transparent 50%),
+  background: radial-gradient(120% 120% at 10% 8%, rgba(251, 191, 36, 0.10), transparent 45%),
+    radial-gradient(100% 80% at 92% 0%, rgba(245, 158, 11, 0.06), transparent 55%),
     var(--bg);
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
@@ -89,8 +92,8 @@ h3,
 h4 {
   margin: 0 0 var(--space-4);
   font-family: var(--font-display);
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
   color: #f5f1e1;
 }
 
@@ -106,7 +109,7 @@ h1 {
 }
 
 .section {
-  padding: clamp(48px, 9vw, 104px) 0;
+  padding: clamp(56px, 9vw, 120px) 0;
 }
 
 .eyebrow {
@@ -114,10 +117,10 @@ h1 {
   align-items: center;
   gap: var(--space-2);
   font-size: 12px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   padding: 6px 12px;
   border-radius: var(--radius-pill);
   background: rgba(251, 191, 36, 0.1);
@@ -125,7 +128,7 @@ h1 {
 }
 
 .lede {
-  font-size: 18px;
+  font-size: clamp(16px, 1.4vw, 19px);
   color: var(--muted);
 }
 
@@ -232,7 +235,7 @@ h1 {
 }
 
 .btn.large {
-  padding: 13px 20px;
+  padding: 14px 22px;
   font-size: 16px;
 }
 
@@ -247,116 +250,6 @@ h1 {
   flex: 0 0 auto;
   width: auto;
   align-self: flex-start;
-}
-
-.hero {
-  padding: clamp(60px, 12vw, 120px) 0 clamp(40px, 8vw, 96px);
-}
-
-.hero-grid {
-  display: grid;
-  gap: clamp(32px, 4vw, 64px);
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  align-items: center;
-}
-
-.hero-visual {
-  position: relative;
-  padding: var(--space-5);
-}
-
-.panel {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-.sparkles {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(40% 40% at 20% 20%, rgba(251, 191, 36, 0.14), transparent 50%),
-    radial-gradient(40% 40% at 80% 10%, rgba(56, 189, 248, 0.12), transparent 50%);
-  filter: blur(30px);
-  pointer-events: none;
-}
-
-.stat-grid {
-  display: grid;
-  gap: var(--space-3);
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  margin-top: var(--space-5);
-}
-
-.stat {
-  padding: var(--space-4);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.stat .label {
-  font-weight: 700;
-  color: var(--accent);
-  font-size: 20px;
-}
-
-.chat-ui {
-  display: grid;
-  gap: var(--space-3);
-}
-
-.chat-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  color: #0d0b06;
-  justify-content: flex-start;
-  text-align: left;
-  background: #fbbf24 !important;
-}
-
-.card .chat-header {
-  color: #fff !important;
-  background: transparent !important;
-  padding-bottom: 20px !important;
-}
-
-.chat-dots span {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--accent);
-}
-
-.bubble {
-  padding: var(--space-3);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.bubble.inbound {
-  border-color: rgba(251, 191, 36, 0.3);
-}
-
-.bubble.outbound {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.bubble.accent {
-  background: rgba(251, 191, 36, 0.1);
-  color: var(--accent);
-  border-color: rgba(251, 191, 36, 0.4);
-}
-
-.bubble .quick {
-  display: inline-flex;
-  gap: var(--space-2);
-  margin-top: var(--space-2);
 }
 
 @media (max-width: 900px) {
@@ -405,6 +298,218 @@ h1 {
 }
   </style>
 
+  <style id="home-premium">
+    /* ===== Shared section intros ===== */
+    .sec-intro { max-width: 760px; margin-bottom: var(--space-7); }
+    .sec-intro h2 { font-size: clamp(30px, 4vw, 50px); }
+
+    .scroll-cue {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: var(--space-6);
+      color: rgba(245, 239, 215, 0.55);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .scroll-cue::after {
+      content: "";
+      width: 1px;
+      height: 42px;
+      background: linear-gradient(var(--accent), transparent);
+    }
+
+    /* ===== 1. Voicebot hero / sticky stage ===== */
+    .voice-stage {
+      position: relative;
+      background: radial-gradient(110% 70% at 84% 14%, rgba(251, 191, 36, 0.12), transparent 60%);
+    }
+    .voice-sticky {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: clamp(96px, 13vh, 150px) 0 clamp(40px, 8vh, 80px);
+    }
+    .voice-layout {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: clamp(28px, 4vw, 72px);
+      align-items: center;
+      width: 100%;
+    }
+    .voice-copy h1 { font-size: clamp(34px, 4.6vw, 62px); }
+    .voice-copy .lede { max-width: 48ch; }
+    .voice-steps {
+      list-style: none;
+      margin: var(--space-6) 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-2);
+    }
+    .voice-step {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--border);
+      border-left: 2px solid transparent;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.02);
+      opacity: 0.55;
+      transition: opacity 0.35s var(--ease-enter), background 0.35s ease, border-color 0.35s ease, transform 0.35s var(--ease-enter);
+    }
+    .voice-step.is-active {
+      opacity: 1;
+      background: rgba(251, 191, 36, 0.07);
+      border-left-color: var(--accent);
+      transform: translateX(4px);
+    }
+    .voice-step__no { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 20px; }
+    .voice-step b { color: #f5f1e1; font-family: var(--font-display); font-size: 16px; }
+    .voice-step .t { display: block; font-size: 13.5px; color: var(--text-soft); margin-top: 2px; }
+
+    /* Core visual: premium AI voice-processing */
+    .voice-visual {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      aspect-ratio: 1 / 1;
+    }
+    .vc-svg { width: 100%; height: 100%; overflow: visible; display: block; }
+    .vc-svg path { fill: none; stroke-linecap: round; }
+    .vc-glow { transform-box: fill-box; transform-origin: center; }
+    .vc-ring-core, .vc-core-dot { transform-box: fill-box; transform-origin: center; will-change: transform, opacity; }
+    .vc-data circle { opacity: 0; }
+
+    .vc-card {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #f5f1e1;
+      background: rgba(18, 15, 10, 0.72);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(251, 191, 36, 0.30);
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+      white-space: nowrap;
+    }
+    .vc-card::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(251, 191, 36, 0.8);
+      flex: 0 0 auto;
+    }
+    .vc-card--tl { top: 5%; left: -2%; }
+    .vc-card--bl { bottom: 8%; left: 1%; }
+    .vc-card--tr { top: 11%; right: -2%; }
+    .vc-card--br { bottom: 4%; right: 0; }
+
+    @media (max-width: 900px) {
+      .voice-sticky { min-height: auto; padding: 104px 0 56px; }
+      .voice-layout { grid-template-columns: 1fr; }
+      .voice-visual { max-width: 340px; margin-top: var(--space-6); }
+      .vc-card { font-size: 11px; padding: 6px 10px; }
+      .vc-card--tl { left: -5%; }
+      .vc-card--tr { right: -5%; }
+    }
+
+    /* ===== 2. Websites self-build ===== */
+    .build-layout {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: clamp(28px, 4vw, 64px);
+      align-items: center;
+    }
+    .build-browser {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .build-bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.02); }
+    .build-bar i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); display: block; }
+    .build-url { margin-left: 10px; font-size: 12px; color: rgba(245, 239, 215, 0.5); }
+    .build-canvas { position: relative; aspect-ratio: 16 / 12; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+    .bl { border: 1px dashed rgba(251, 191, 36, 0.28); border-radius: 10px; background: rgba(251, 191, 36, 0.04); }
+    .bl.solid { border-style: solid; border-color: var(--border); background: rgba(255, 255, 255, 0.04); }
+    .bl-nav { height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 12px; }
+    .bl-logo { width: 70px; height: 12px; border-radius: 4px; background: var(--accent); }
+    .bl-navlink { width: 40px; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.18); }
+    .bl-nav .spacer { flex: 1; }
+    .bl-hero { flex: 1; display: grid; grid-template-columns: 1.3fr 1fr; gap: 12px; padding: 14px; }
+    .bl-lines { display: flex; flex-direction: column; gap: 9px; justify-content: center; }
+    .bl-line { height: 12px; border-radius: 5px; background: rgba(255, 255, 255, 0.16); }
+    .bl-line.lg { height: 18px; width: 90%; background: rgba(245, 239, 215, 0.7); }
+    .bl-line.md { width: 70%; }
+    .bl-line.sm { width: 50%; }
+    .bl-btn { margin-top: 6px; width: 120px; height: 30px; border-radius: var(--radius-pill); background: var(--accent); }
+    .bl-img { border-radius: 10px; background: linear-gradient(135deg, rgba(251, 191, 36, 0.22), rgba(245, 158, 11, 0.10)); border: 1px solid rgba(251, 191, 36, 0.25); }
+    .bl-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; height: 64px; }
+    .bl-card { border-radius: 10px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border); }
+    @media (max-width: 900px) { .build-layout { grid-template-columns: 1fr; } }
+
+    /* ===== 3. AI Automations golden line ===== */
+    .flow { position: relative; margin-top: var(--space-7); }
+    .flow-line { position: absolute; left: 26px; top: 6px; bottom: 6px; width: 2px; height: auto; }
+    .flow-line line { fill: none; stroke-width: 2; vector-effect: non-scaling-stroke; }
+    .flow-line__bg { stroke: rgba(251, 191, 36, 0.18); }
+    .flow-line__draw { stroke: var(--accent); filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.55)); }
+    .flow-list { list-style: none; display: grid; gap: clamp(16px, 2.4vw, 26px); padding-left: 64px; margin: 0; }
+    .flow-card { position: relative; }
+    .flow-card::before {
+      content: "";
+      position: absolute;
+      left: -45px;
+      top: 22px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.12);
+    }
+    .flow-card h3 { font-size: 18px; margin-bottom: 4px; }
+    .flow-card p { margin: 0; font-size: 14.5px; }
+    .flow-card .step-no { color: var(--accent); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+    @media (max-width: 600px) {
+      .flow-line { left: 18px; }
+      .flow-list { padding-left: 48px; }
+      .flow-card::before { left: -37px; }
+    }
+
+    /* ===== Generic grids reused ===== */
+    .feature-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .section-head { max-width: 720px; margin-bottom: var(--space-7); }
+    .work-img { width: 100%; border-radius: 12px; margin-bottom: 14px; aspect-ratio: 16/10; }
+    .cta-band {
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(245, 158, 11, 0.05));
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 5vw, 56px);
+      box-shadow: var(--shadow);
+    }
+    .footer { padding: 48px 0; border-top: 1px solid var(--border); background: #0b0905; margin-top: var(--space-7); }
+    .footer-grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .footer-links, .footer-contact, .footer-legal { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-2); }
+    .footer a { color: var(--muted); }
+
+    /* Reveal helper: the hidden start state is applied by JS (gsap.set) only,
+       so without JS or with reduced motion all content stays visible. */
+  </style>
+
   <link rel="preload" href="/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -417,15 +522,14 @@ h1 {
   <header class="site-header">
     <div class="shell nav-shell">
       <a class="brand" href="/">
-        <img class="brand-mark" src="/images/smart-scale-logo.svg" alt="SmartScale logo" width="190" height="39">
-        
+        <img class="brand-mark" src="/images/smart-scale-logo.svg" alt="Smart-Scale logo" width="190" height="39">
       </a>
       <nav class="nav" aria-label="Hoofdmenu">
         <button class="nav-toggle" aria-expanded="false" aria-label="Menu openen"><span></span><span></span><span></span></button>
         <ul class="nav-links">
+          <li><a href="/voice-agents">Voicebot</a></li>
           <li><a href="/websites">Websites</a></li>
-          <li><a href="/voice-agents">Voice agents</a></li>
-          <li><a href="/ai-op-maat">AI op maat</a></li>
+          <li><a href="/ai-op-maat">AI automations</a></li>
           <li><a href="/werk">Werk</a></li>
           <li><a href="/over-ons">Over ons</a></li>
           <li><a href="/contact">Contact</a></li>
@@ -439,152 +543,186 @@ h1 {
   </header>
 
   <main>
-    <section class="hero">
-      <div class="shell hero-grid">
-        <div>
-          <div class="eyebrow">AI-bedrijf</div>
-          <h1>We zetten AI in waar het je bedrijf echt iets oplevert.</h1>
-          <p class="lede">Smart-Scale is een AI-bedrijf. We kijken waar AI in jouw bedrijf echt iets oplevert en bouwen het. Denk aan een professionele website, voice agents die de telefoon opnemen, of automatisering van je processen.</p>
-          <div class="cta-actions">
-            <a class="btn large" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Plan een gesprek</a>
-            <a class="btn secondary large" href="https://wa.me/+31683004208" target="_blank" rel="noopener">App ons</a>
-          </div>
-          <div class="stat-grid">
-            <div class="stat" data-reveal>
-              <div class="label">Supersnel en veilig</div>
-              <p>Statische site, hoge scores op snelheid en SEO.</p>
-            </div>
-            <div class="stat" data-reveal>
-              <div class="label">Teksten inbegrepen</div>
-              <p>Wij schrijven je teksten en scherpe koppen.</p>
-            </div>
-            <div class="stat" data-reveal>
-              <div class="label">Van A tot Z</div>
-              <p>Ontwerp, bouw, basis-SEO en livegang.</p>
+    <!-- ===== 1. Voicebot hero (sticky scroll storytelling) ===== -->
+    <section class="voice-stage" id="voicebot" aria-label="AI Voicebot">
+      <div class="voice-sticky">
+        <div class="shell voice-layout">
+          <div class="voice-copy">
+            <div class="eyebrow">AI Voicebot / AI-telefonist</div>
+            <h1>Van elk gesprek direct naar actie.</h1>
+            <p class="lede">Smart-Scale neemt oproepen aan, begrijpt klantvragen en regelt automatisch de juiste opvolging. Je mist geen telefoontje meer en elk gesprek levert iets op.</p>
+            <ol class="voice-steps" aria-label="Hoe de voicebot een gesprek afhandelt">
+              <li class="voice-step is-active"><span class="voice-step__no">1</span><span><b>Oproep ontvangen</b><span class="t">De voicebot neemt op, ook buiten kantooruren.</span></span></li>
+              <li class="voice-step"><span class="voice-step__no">2</span><span><b>Vraag begrepen</b><span class="t">De stem wordt omgezet naar een duidelijke vraag.</span></span></li>
+              <li class="voice-step"><span class="voice-step__no">3</span><span><b>Antwoord gegeven</b><span class="t">De AI-core antwoordt rustig en in jouw taal.</span></span></li>
+              <li class="voice-step"><span class="voice-step__no">4</span><span><b>Actie geregeld</b><span class="t">Afspraak, terugbelverzoek of opvolging staat klaar.</span></span></li>
+            </ol>
+            <div class="cta-actions">
+              <a class="btn large" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Plan een gratis adviesgesprek</a>
+              <a class="btn secondary large" href="/voice-agents">Hoe het werkt</a>
             </div>
           </div>
-        </div>
-        <div class="hero-visual">
-          <div class="sparkles" aria-hidden="true"></div>
-          <div class="panel" data-parallax>
-            <img src="/images/hero-automation.svg" alt="Visualisatie van een geautomatiseerde flow" width="960" height="520" style="width:100%; border-radius:12px;">
-            <div class="card" style="margin-top: -36px; max-width: 320px;" data-reveal>
-              <div class="chat-header" style="background: rgb(251, 191, 36); color: rgb(0, 0, 0); padding-bottom: 20px;">
-                <div class="jm-header" style="display: flex; align-items: flex-start; gap: 8px; justify-content: flex-start; text-align: left; color: rgb(255, 255, 255) !important;">
-                  <img class="jm-header__img" src="/images/joshua-profiel-48.jpg" srcset="/images/joshua-profiel-48.jpg 1x, /images/joshua-profiel-96.jpg 2x" alt="Joshua" width="48" height="48" loading="lazy" decoding="async" style="width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:center;border:1px solid rgba(255,255,255,0.08);">
-                  <div style="color:#ffffff !important;font-weight:600;font-size:18px;line-height:1.2;">
-                    Joshua
-                    <div style="color:#ffffff !important;font-size:13px;font-weight:400;margin-top:2px;line-height:1.2;">
-                      Stel gerust je vraag
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="chat-ui">
-                <div class="bubble inbound">Hoi! Wil je een nieuwe website, of eerst even sparren over AI in je bedrijf?</div>
-                <div class="bubble accent">Ik wil een nieuwe website.</div>
-                <div class="bubble inbound">
-                  Top. App ons of plan een gesprek, dan kijken we wat past.
-                  <div class="quick" style="margin-top: var(--space-2);">
-                    <a class="btn small" href="https://wa.me/+31683004208" target="_blank" rel="noopener">Open WhatsApp</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+          <div class="voice-visual" aria-hidden="true">
+            <svg class="vc-svg" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.45"></stop>
+                  <stop offset="55%" stop-color="#fbbf24" stop-opacity="0.08"></stop>
+                  <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"></stop>
+                </radialGradient>
+                <linearGradient id="waveIn" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#fbbf24" stop-opacity="0"></stop>
+                  <stop offset="45%" stop-color="#fbbf24" stop-opacity="0.65"></stop>
+                  <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.9"></stop>
+                </linearGradient>
+                <linearGradient id="waveOut" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.85"></stop>
+                  <stop offset="55%" stop-color="#fbbf24" stop-opacity="0.45"></stop>
+                  <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"></stop>
+                </linearGradient>
+              </defs>
+
+              <!-- soft inner glow -->
+              <circle class="vc-glow" cx="250" cy="240" r="118" fill="url(#coreGlow)"></circle>
+
+              <!-- incoming voice wave (left -> core) -->
+              <path class="vc-in vc-in-2" d="M6,240 C56,170 96,310 136,240 C166,196 192,284 216,240" stroke="url(#waveIn)" stroke-width="1"></path>
+              <path class="vc-in vc-in-1" d="M6,240 C52,158 98,322 138,240 C168,188 194,292 216,240" stroke="url(#waveIn)" stroke-width="1.6"></path>
+
+              <!-- answer wave (core -> right) -->
+              <path class="vc-out" d="M284,240 C314,208 340,272 372,240 C402,212 432,268 474,240" stroke="url(#waveOut)" stroke-width="1.6"></path>
+
+              <!-- AI core: thin rings, inner node, small orbit nodes -->
+              <g class="vc-core-g">
+                <circle class="vc-ring-soft" cx="250" cy="240" r="58" stroke="#fbbf24" stroke-opacity="0.12" stroke-width="1"></circle>
+                <circle class="vc-ring-soft" cx="250" cy="240" r="42" stroke="#fbbf24" stroke-opacity="0.2" stroke-width="1"></circle>
+                <circle class="vc-ring-core" cx="250" cy="240" r="24" stroke="#fbbf24" stroke-opacity="0.6" stroke-width="1.2"></circle>
+                <circle class="vc-core-dot" cx="250" cy="240" r="4.5" fill="#ffe9a8"></circle>
+                <circle class="vc-node" cx="250" cy="216" r="2.4" fill="#fbbf24"></circle>
+                <circle class="vc-node" cx="274" cy="240" r="2.4" fill="#fbbf24"></circle>
+                <circle class="vc-node" cx="250" cy="264" r="2.4" fill="#fbbf24"></circle>
+                <circle class="vc-node" cx="226" cy="240" r="2.4" fill="#fbbf24"></circle>
+              </g>
+
+              <!-- data points flowing into the core (placed/animated by JS) -->
+              <g class="vc-data">
+                <circle cx="250" cy="240" r="3" fill="#fbbf24"></circle>
+                <circle cx="250" cy="240" r="3" fill="#fbbf24"></circle>
+                <circle cx="250" cy="240" r="3" fill="#fbbf24"></circle>
+                <circle cx="250" cy="240" r="3" fill="#fbbf24"></circle>
+              </g>
+            </svg>
+
+            <!-- premium status cards around the core (real HTML text) -->
+            <div class="vc-card vc-card--tl">Oproep ontvangen</div>
+            <div class="vc-card vc-card--bl">Vraag begrepen</div>
+            <div class="vc-card vc-card--tr">Antwoord gegeven</div>
+            <div class="vc-card vc-card--br">Actie geregeld</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section gradient-surface">
-      <div class="shell">
-        <div class="section-head">
-          <div class="eyebrow">Wat we doen</div>
-          <h2>AI, praktisch toegepast.</h2>
-          <p>Het meeste werk draait nu om websites, omdat AI daar het snelst iets oplevert. Daarnaast doen we voice agents en automatisering.</p>
-        </div>
-        <div class="feature-grid">
-          <article class="card" data-reveal>
-            <div class="eyebrow">Hoofdaanbod</div>
-            <h3>Websites</h3>
-            <p>Een snelle, professionele website van A tot Z. Ontwerp, teksten, bouw en basis-SEO. Geen CMS-gedoe, wel hoge snelheid en een nette uitstraling.</p>
-            <a class="btn secondary" href="/websites">Bekijk websites</a>
-          </article>
-          <article class="card" data-reveal>
-            <h3>Voice agents</h3>
-            <p>AI-telefoonassistenten die opnemen, vragen beantwoorden en afspraken inplannen.</p>
-            <a class="btn secondary" href="/voice-agents">Over voice agents</a>
-          </article>
-          <article class="card" data-reveal>
-            <h3>AI op maat</h3>
-            <p>Chatbots, koppelingen en automatiseringen voor je eigen processen. Meestal een vervolgstap.</p>
-            <a class="btn secondary" href="/ai-op-maat">Over AI op maat</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell dual">
-        <div>
-          <div class="eyebrow">Waarom met AI</div>
-          <h2>Sneller bouwen, betere kwaliteit.</h2>
-          <p>Met AI werken we sneller. Daardoor leveren we meer kwaliteit voor een eerlijke prijs. We bouwen statisch: geen zware plugins, geen systemen die je niet nodig hebt. Een site die snel laadt, goed leest en goed scoort.</p>
-          <ul class="list-check">
-            <li>Wij schrijven de teksten en de koppen.</li>
-            <li>Basis-SEO en GEO, zodat je goed gevonden wordt.</li>
-            <li>Mobielvriendelijk, snel en veilig.</li>
-          </ul>
+    <!-- ===== 2. Websites (self-building) ===== -->
+    <section class="section websites-stage" id="websites">
+      <div class="shell build-layout">
+        <div class="sec-intro" data-fade style="margin-bottom:0">
+          <div class="eyebrow">Websites</div>
+          <h2>Websites die niet alleen mooi zijn, maar klanten opleveren.</h2>
+          <p class="lede">Wij bouwen snelle, duidelijke en professionele websites die vertrouwen wekken en bezoekers omzetten naar aanvragen. Van leeg canvas tot een site die werkt.</p>
           <div class="cta-actions">
-            <a class="btn" href="/websites">Zo werkt een website</a>
+            <a class="btn" href="/websites">Bekijk websites</a>
             <a class="btn secondary" href="/werk">Bekijk werk</a>
           </div>
         </div>
-        <div class="usecase-grid">
-          <article class="card" data-reveal>
-            <div class="eyebrow">Voorbeeld</div>
-            <h3>Snellere site na verhuizing</h3>
-            <p>Bij een bestaande site die we overzetten ging de GTmetrix-score van D naar B, de PageSpeed tot 97 en de laadtijd van ruim 4 naar 2 seconden.</p>
-          </article>
-          <article class="card" data-reveal>
-            <h3>Geen CMS-gedoe</h3>
-            <p>Een statische site is snel en veilig en heeft weinig onderhoud nodig. Je logt niet zelf in; aanpassingen doen wij.</p>
-          </article>
+
+        <div class="build-browser" data-fade>
+          <div class="build-bar"><i></i><i></i><i></i><span class="build-url">jouw-bedrijf.nl</span></div>
+          <div class="build-canvas">
+            <div class="bl bl-nav solid" data-build><span class="bl-logo"></span><span class="spacer"></span><span class="bl-navlink"></span><span class="bl-navlink"></span><span class="bl-navlink"></span></div>
+            <div class="bl bl-hero" data-build>
+              <div class="bl-lines">
+                <span class="bl-line lg"></span>
+                <span class="bl-line md"></span>
+                <span class="bl-line sm"></span>
+                <span class="bl-btn"></span>
+              </div>
+              <div class="bl-img"></div>
+            </div>
+            <div class="bl-cards" data-build>
+              <div class="bl-card"></div>
+              <div class="bl-card"></div>
+              <div class="bl-card"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section gradient-surface">
+    <!-- ===== 3. AI Automations (golden line) ===== -->
+    <section class="section" id="automations" style="background: radial-gradient(100% 60% at 12% 0%, rgba(251,191,36,0.07), transparent 60%);">
       <div class="shell">
-        <div class="section-head">
+        <div class="sec-intro" data-fade>
+          <div class="eyebrow">AI Automations</div>
+          <h2>Automatiseer het werk dat je elke dag opnieuw doet.</h2>
+          <p class="lede">Smart-Scale koppelt tools, processen en AI zodat opvolging sneller, slimmer en consistenter gebeurt. Losse systemen worden samen één slim proces.</p>
+        </div>
+
+        <div class="flow">
+          <svg class="flow-line" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true">
+            <line class="flow-line__bg" x1="1" y1="0" x2="1" y2="100"></line>
+            <line class="flow-line__draw" x1="1" y1="0" x2="1" y2="100"></line>
+          </svg>
+          <ol class="flow-list">
+            <li class="flow-card card" data-fade><span class="step-no">Stap 1</span><h3>Lead komt binnen</h3><p>Via je website, telefoon of formulier. Niets blijft liggen.</p></li>
+            <li class="flow-card card" data-fade><span class="step-no">Stap 2</span><h3>AI verwerkt informatie</h3><p>De vraag wordt herkend, gelabeld en op de juiste plek gezet.</p></li>
+            <li class="flow-card card" data-fade><span class="step-no">Stap 3</span><h3>CRM wordt bijgewerkt</h3><p>Contactgegevens en context staan automatisch klaar.</p></li>
+            <li class="flow-card card" data-fade><span class="step-no">Stap 4</span><h3>Follow-up wordt verstuurd</h3><p>Een nette mail of bericht op het juiste moment.</p></li>
+            <li class="flow-card card" data-fade><span class="step-no">Stap 5</span><h3>Afspraak wordt gemaakt</h3><p>Direct in de agenda, zonder heen en weer mailen.</p></li>
+            <li class="flow-card card" data-fade><span class="step-no">Stap 6</span><h3>Samenvatting wordt gestuurd</h3><p>Jij krijgt een korte notificatie met wat er speelt.</p></li>
+          </ol>
+        </div>
+
+        <div class="cta-actions" data-fade style="margin-top: var(--space-7);">
+          <a class="btn" href="/ai-op-maat">Over AI automations</a>
+          <a class="btn secondary" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Plan een gesprek</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Werk ===== -->
+    <section class="section" id="werk">
+      <div class="shell">
+        <div class="section-head" data-fade>
           <div class="eyebrow">Werk</div>
           <h2>Een paar dingen die we gebouwd hebben.</h2>
-          <p>Een echte klant en een paar branche-demo's, zodat je ziet hoe een AI-assistent op een site werkt.</p>
+          <p>Een echte klant en een paar branche-demo's, zodat je ziet hoe het werkt.</p>
         </div>
         <div class="feature-grid">
-          <article class="card" data-reveal>
-            <img src="/images/werk-blueshield.jpg" alt="Website van Blue Shield" width="760" height="475" loading="lazy" style="width:100%; border-radius:12px; margin-bottom:14px;">
+          <article class="card" data-fade>
+            <img class="work-img" src="/images/werk-blueshield.jpg" alt="Website van Blue Shield" width="760" height="475" loading="lazy">
             <div class="eyebrow">Klant</div>
             <h3>Blue Shield</h3>
             <p>Cybersecurity-bedrijf. Strakke, serieuze site die vertrouwen uitstraalt.</p>
-            <a class="btn secondary" href="https://blueshield.it" target="_blank" rel="noopener">Bekijk site</a>
+            <a class="btn secondary" href="https://blueshield-it.nl/" target="_blank" rel="noopener">Bekijk site</a>
           </article>
-          <article class="card" data-reveal>
-            <img src="/images/werk-garage.jpg" alt="Garage-demo met AI-assistent" width="760" height="475" loading="lazy" style="width:100%; border-radius:12px; margin-bottom:14px;">
+          <article class="card" data-fade>
+            <img class="work-img" src="/images/werk-garage.jpg" alt="Garage-demo met AI-assistent" width="760" height="475" loading="lazy">
             <div class="eyebrow">Demo</div>
             <h3>Garagebedrijf</h3>
             <p>Voorbeeld van een AI-assistent voor een garage.</p>
             <a class="btn secondary" href="/garage-demo">Open demo</a>
           </article>
-          <article class="card" data-reveal>
-            <img src="/images/werk-schoonheid.jpg" alt="Schoonheidssalon-demo met AI-assistent" width="760" height="475" loading="lazy" style="width:100%; border-radius:12px; margin-bottom:14px;">
+          <article class="card" data-fade>
+            <img class="work-img" src="/images/werk-schoonheid.jpg" alt="Schoonheidssalon-demo met AI-assistent" width="760" height="475" loading="lazy">
             <div class="eyebrow">Demo</div>
             <h3>Schoonheidssalon</h3>
             <p>Voorbeeld van een AI-assistent voor een salon.</p>
             <a class="btn secondary" href="/schoonheid-demo">Open demo</a>
           </article>
-          <article class="card" data-reveal>
-            <img src="/images/werk-shopify.jpg" alt="Webshop-demo met AI-assistent" width="760" height="475" loading="lazy" style="width:100%; border-radius:12px; margin-bottom:14px;">
+          <article class="card" data-fade>
+            <img class="work-img" src="/images/werk-shopify.jpg" alt="Webshop-demo met AI-assistent" width="760" height="475" loading="lazy">
             <div class="eyebrow">Demo</div>
             <h3>Webshop</h3>
             <p>Voorbeeld van een AI-assistent voor een Shopify-webshop.</p>
@@ -594,59 +732,24 @@ h1 {
       </div>
     </section>
 
-    <section class="section">
+    <!-- ===== Over ons ===== -->
+    <section class="section" id="over-ons" style="background: radial-gradient(100% 60% at 88% 0%, rgba(251,191,36,0.06), transparent 60%);">
       <div class="shell">
-        <div class="section-head">
-          <div class="eyebrow">Hoe het werkt</div>
-          <h2>Van wat je hebt naar iets beters.</h2>
-          <p>Duidelijke stappen. Je weet steeds wat er gebeurt.</p>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item" data-reveal>
-            <div class="marker">1</div>
-            <div><h3>Gesprek</h3><p>We kijken wat je nodig hebt.</p></div>
-          </div>
-          <div class="timeline-item" data-reveal>
-            <div class="marker">2</div>
-            <div><h3>Voorstel</h3><p>Duidelijke prijs en planning.</p></div>
-          </div>
-          <div class="timeline-item" data-reveal>
-            <div class="marker">3</div>
-            <div><h3>Jij levert aan</h3><p>Logo, foto's, je bestaande teksten en info.</p></div>
-          </div>
-          <div class="timeline-item" data-reveal>
-            <div class="marker">4</div>
-            <div><h3>Eerste richting</h3><p>Design, structuur, koppen en teksten. Je ziet de richting.</p></div>
-          </div>
-          <div class="timeline-item" data-reveal>
-            <div class="marker">5</div>
-            <div><h3>Correctie en bouw</h3><p>Jouw feedback in een ronde, daarna maken we het af.</p></div>
-          </div>
-          <div class="timeline-item" data-reveal>
-            <div class="marker">6</div>
-            <div><h3>Live</h3><p>Livegang met hulp bij domein en DNS. Daarna onderhoud als je wilt.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section gradient-surface">
-      <div class="shell">
-        <div class="section-head">
+        <div class="section-head" data-fade>
           <div class="eyebrow">Over ons</div>
           <h2>De mensen achter Smart-Scale.</h2>
           <p>Een klein team. Korte lijnen, je weet met wie je werkt.</p>
         </div>
         <div class="feature-grid">
-          <article class="card" data-reveal>
+          <article class="card" data-fade>
             <h3>Sake</h3>
             <p>Founder, sales en customer relations.</p>
           </article>
-          <article class="card" data-reveal>
+          <article class="card" data-fade>
             <h3>Joshua</h3>
             <p>Founder en CTO. Bouwt de websites en de AI.</p>
           </article>
-          <article class="card" data-reveal>
+          <article class="card" data-fade>
             <h3>Diego</h3>
             <p>Customer relations.</p>
           </article>
@@ -654,43 +757,45 @@ h1 {
       </div>
     </section>
 
-    <section class="section">
+    <!-- ===== FAQ ===== -->
+    <section class="section" id="faq">
       <div class="shell">
-        <div class="section-head">
+        <div class="section-head" data-fade>
           <div class="eyebrow">Vragen</div>
           <h2>Veelgestelde vragen.</h2>
         </div>
         <div class="feature-grid">
-          <article class="card" data-reveal>
+          <article class="card" data-fade>
+            <h3>Neemt de voicebot echt de telefoon aan?</h3>
+            <p>Ja. De voicebot neemt op, beantwoordt vragen en plant afspraken of zet een terugbelverzoek klaar.</p>
+          </article>
+          <article class="card" data-fade>
             <h3>Schrijven jullie ook de teksten?</h3>
             <p>Ja. Jij levert je verhaal aan, wij maken er nette websiteteksten en koppen van.</p>
           </article>
-          <article class="card" data-reveal>
-            <h3>Doen jullie SEO?</h3>
-            <p>Basis-SEO en GEO, zodat je goed gevonden wordt. Geen rankinggaranties of campagnes.</p>
+          <article class="card" data-fade>
+            <h3>Met welke tools koppelen jullie?</h3>
+            <p>We koppelen met veel gangbare CRM's, agenda's en mailtools. Vertel wat je gebruikt, dan kijken we wat past.</p>
           </article>
-          <article class="card" data-reveal>
-            <h3>Kan ik het later zelf aanpassen?</h3>
-            <p>Een statische site beheer je niet zelf. Aanpassingen doen wij. Daardoor is de site snel en veilig.</p>
-          </article>
-          <article class="card" data-reveal>
-            <h3>Regelen jullie hosting?</h3>
-            <p>Ja. We kunnen hosten en onderhouden, of je site op je eigen hosting zetten.</p>
+          <article class="card" data-fade>
+            <h3>Wat kost het?</h3>
+            <p>Dat hangt af van wat je nodig hebt. We bespreken het eerlijk in een gesprek, zonder verkooppraatje.</p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ===== CTA ===== -->
     <section class="section">
       <div class="shell">
-        <div class="cta-band">
+        <div class="cta-band" data-fade>
           <div class="section-head" style="margin-bottom: var(--space-4);">
             <div class="eyebrow">Even sparren?</div>
             <h2>Benieuwd wat AI voor je bedrijf kan doen?</h2>
             <p>App ons of plan een gesprek. Geen verkooppraatje, gewoon kijken of het past.</p>
           </div>
           <div class="cta-actions">
-            <a class="btn large" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Plan een gesprek</a>
+            <a class="btn large" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Plan een gratis adviesgesprek</a>
             <a class="btn secondary large" href="https://wa.me/+31683004208" target="_blank" rel="noopener">App ons</a>
           </div>
         </div>
@@ -702,10 +807,9 @@ h1 {
     <div class="shell footer-grid">
       <div>
         <div class="brand">
-          <img class="brand-mark" src="/images/smart-scale-logo.svg" alt="SmartScale logo" width="190" height="39">
-          
+          <img class="brand-mark" src="/images/smart-scale-logo.svg" alt="Smart-Scale logo" width="190" height="39">
         </div>
-        <p>Smart-Scale is een AI-bedrijf. We helpen bedrijven AI te implementeren, van een professionele website tot voice agents en automatisering.</p>
+        <p>Smart-Scale is een AI-bedrijf. We helpen bedrijven AI te implementeren, van AI-voicebots tot professionele websites en automatisering.</p>
         <ul class="footer-contact">
           <li><a href="mailto:info@smart-scale.ai">info@smart-scale.ai</a></li>
           <li><a href="https://wa.me/+31683004208" target="_blank" rel="noopener">WhatsApp</a></li>
@@ -714,9 +818,9 @@ h1 {
       <div>
         <h3>Paginas</h3>
         <ul class="footer-links">
+          <li><a href="/voice-agents">Voicebot</a></li>
           <li><a href="/websites">Websites</a></li>
-          <li><a href="/voice-agents">Voice agents</a></li>
-          <li><a href="/ai-op-maat">AI op maat</a></li>
+          <li><a href="/ai-op-maat">AI automations</a></li>
           <li><a href="/werk">Werk</a></li>
           <li><a href="/over-ons">Over ons</a></li>
           <li><a href="/contact">Contact</a></li>
@@ -732,8 +836,8 @@ h1 {
     </div>
   </footer>
 
+  <script src="/js/gsap.min.js"></script>
+  <script src="/js/ScrollTrigger.min.js"></script>
   <script src="/script.js"></script>
 </body>
 </html>
-
-

@@ -20,6 +20,11 @@ const mime = {
 
 http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split('?')[0]);
+  // Schone URL zonder extensie en zonder trailing slash (bijv. /websites) doorsturen
+  // naar de variant met slash (/websites/), net als de live server (Hostinger/LiteSpeed).
+  if (!p.endsWith('/') && !path.extname(p)) {
+    res.writeHead(301, { Location: p + '/' }); res.end(); return;
+  }
   if (p.endsWith('/')) p += 'index.html';
   const fp = path.join(ROOT, p);
   // voorkom uitbreken buiten ROOT

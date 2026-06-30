@@ -507,6 +507,166 @@
     launcher = createChatLauncher(startChat);
   }
 
+  // Homepage scroll storytelling (GSAP + ScrollTrigger). Only runs on pages that
+  // load GSAP and contain the relevant sections, so other pages are unaffected.
+  function initHomeMotion() {
+    const gsap = window.gsap;
+    const ScrollTrigger = window.ScrollTrigger;
+    if (!gsap) return;
+
+    // Reduced motion: keep everything visible and static, no pinning or scrubbing.
+    if (prefersReducedMotion) {
+      qsa(".voice-step").forEach((s) => s.classList.add("is-active"));
+      return;
+    }
+    if (!ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    // --- 1. Voicebot sticky stage: premium AI voice-processing visual ---
+    const stage = qs(".voice-stage");
+    if (stage) {
+      const inPaths = qsa(".vc-in", stage);
+      const outPath = qs(".vc-out", stage);
+      const glow = qs(".vc-glow", stage);
+      const coreRing = qs(".vc-ring-core", stage);
+      const coreDot = qs(".vc-core-dot", stage);
+      const orbitNodes = qsa(".vc-node", stage);
+      const dataPts = qsa(".vc-data circle", stage);
+      const cards = qsa(".vc-card", stage);
+      const steps = qsa(".voice-step", stage);
+
+      // Where each data point starts along the incoming wave (SVG coords, core at 250,240).
+      const dataStart = [
+        { x: 32, y: 240 }, { x: 78, y: 212 }, { x: 120, y: 268 }, { x: 162, y: 226 },
+      ];
+
+      const prepDraw = (path) => {
+        if (!path || typeof path.getTotalLength !== "function") return;
+        const len = path.getTotalLength();
+        gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
+      };
+
+      const mm = gsap.matchMedia();
+
+      // Desktop: pinned, scrubbed 5-phase storytelling.
+      mm.add("(min-width: 901px)", () => {
+        inPaths.forEach(prepDraw);
+        prepDraw(outPath);
+        // Resting state still reads as a present AI core (calm, not empty).
+        gsap.set(glow, { opacity: 0.26, scale: 0.94 });
+        gsap.set(coreRing, { scale: 0.95, opacity: 0.6 });
+        gsap.set(coreDot, { scale: 0.92, opacity: 0.9 });
+        gsap.set(orbitNodes, { opacity: 0.45 });
+        dataPts.forEach((d, i) => gsap.set(d, { attr: { cx: dataStart[i].x, cy: dataStart[i].y }, opacity: 0 }));
+        gsap.set(cards, { opacity: 0, y: 8 });
+
+        const tl = gsap.timeline({
+          defaults: { ease: "power1.inOut" },
+          scrollTrigger: {
+            trigger: stage,
+            start: "top top",
+            end: "+=3000",
+            scrub: 1,
+            pin: ".voice-sticky",
+            anticipatePin: 1,
+          },
+        });
+
+        // Phase 1 - inkomende voice wave tekent zich.
+        tl.to(inPaths, { strokeDashoffset: 0, duration: 1, stagger: 0.2 }, 0)
+          .to(cards[0], { opacity: 1, y: 0, duration: 0.5 }, 0.55);
+        // Phase 2 - datapunten bewegen rustig naar de core.
+        tl.to(dataPts, { opacity: 1, duration: 0.3, stagger: 0.12 }, 1.15)
+          .to(dataPts, { attr: { cx: 250, cy: 240 }, duration: 1, stagger: 0.12, ease: "power2.in" }, 1.15)
+          .to(dataPts, { opacity: 0, duration: 0.25, stagger: 0.12 }, 2.0)
+          .to(orbitNodes, { opacity: 1, duration: 0.5, stagger: 0.06 }, 1.8)
+          .to(cards[1], { opacity: 1, y: 0, duration: 0.5 }, 1.7);
+        // Phase 3 - core licht subtiel op.
+        tl.to(glow, { opacity: 0.5, scale: 1.04, duration: 0.7 }, 2.3)
+          .to(coreRing, { scale: 1.06, opacity: 0.8, duration: 0.7 }, 2.3)
+          .to(coreDot, { scale: 1.1, opacity: 1, duration: 0.7 }, 2.3);
+        // Phase 4 - antwoord-wave komt terug uit de core.
+        tl.to(outPath, { strokeDashoffset: 0, duration: 1 }, 2.9)
+          .to(cards[2], { opacity: 1, y: 0, duration: 0.5 }, 3.2);
+        // Phase 5 - alles komt tot rust, laatste actiecard verschijnt.
+        tl.to(glow, { opacity: 0.38, scale: 1, duration: 0.6 }, 3.7)
+          .to(coreRing, { scale: 1, duration: 0.6 }, 3.7)
+          .to(cards[3], { opacity: 1, y: 0, duration: 0.5 }, 3.7);
+
+        // Highlight the matching text step per scroll progress.
+        const stepTrigger = ScrollTrigger.create({
+          trigger: stage,
+          start: "top top",
+          end: "+=3000",
+          onUpdate: (self) => {
+            const i = Math.min(steps.length - 1, Math.floor(self.progress * steps.length));
+            steps.forEach((s, idx) => s.classList.toggle("is-active", idx === i));
+          },
+        });
+
+        return () => {
+          stepTrigger.kill();
+          steps.forEach((s) => s.classList.remove("is-active"));
+        };
+      });
+
+      // Mobile/tablet: no pin. Show a complete, calm static visual; highlight all steps.
+      mm.add("(max-width: 900px)", () => {
+        gsap.set(glow, { opacity: 0.4 });
+        gsap.set(coreRing, { opacity: 0.65 });
+        gsap.set(coreDot, { opacity: 1 });
+        gsap.set(orbitNodes, { opacity: 1 });
+        gsap.set(dataPts, { opacity: 0 });
+        gsap.set(cards, { opacity: 1, y: 0 });
+        steps.forEach((s) => s.classList.add("is-active"));
+        return () => steps.forEach((s) => s.classList.remove("is-active"));
+      });
+    }
+
+    // --- 2. Websites self-build ---
+    const build = qs(".build-browser");
+    if (build) {
+      const layers = qsa("[data-build]", build);
+      gsap.set(layers, { opacity: 0, y: 16 });
+      gsap.timeline({
+        scrollTrigger: { trigger: ".websites-stage", start: "top 72%", end: "center 55%", scrub: 1 },
+      }).to(layers, { opacity: 1, y: 0, stagger: 0.5, duration: 1 });
+    }
+
+    // --- 3. Automations golden line ---
+    const flow = qs(".flow");
+    if (flow) {
+      const draw = qs(".flow-line__draw", flow);
+      if (draw && typeof draw.getTotalLength === "function") {
+        const len = draw.getTotalLength();
+        gsap.set(draw, { strokeDasharray: len, strokeDashoffset: len });
+        gsap.to(draw, {
+          strokeDashoffset: 0,
+          ease: "none",
+          scrollTrigger: { trigger: flow, start: "top 75%", end: "bottom 80%", scrub: 1 },
+        });
+      }
+      const cards = qsa(".flow-card", flow);
+      gsap.set(cards, { opacity: 0, y: 22 });
+      ScrollTrigger.batch(cards, {
+        start: "top 85%",
+        onEnter: (b) => gsap.to(b, { opacity: 1, y: 0, stagger: 0.12, duration: 0.5, overwrite: true }),
+      });
+    }
+
+    // --- Generic fade-ins for remaining sections ---
+    const fades = qsa("[data-fade]").filter((el) => !el.closest(".flow"));
+    if (fades.length) {
+      gsap.set(fades, { opacity: 0, y: 20 });
+      ScrollTrigger.batch(fades, {
+        start: "top 88%",
+        onEnter: (b) => gsap.to(b, { opacity: 1, y: 0, stagger: 0.1, duration: 0.5, overwrite: true }),
+      });
+    }
+
+    ScrollTrigger.refresh();
+  }
+
   function init() {
     initNav();
     initSmoothScroll();
@@ -514,6 +674,7 @@
     initTypewriter();
     initAccordion();
     initParallax();
+    initHomeMotion();
     scheduleChatInit();
     let tries = 0;
     const footerTimer = setInterval(() => {

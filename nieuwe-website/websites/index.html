@@ -19,6 +19,140 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    /* Voordelen onder de hero-knoppen */
+    .hero-benefits {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-5) 0 0;
+      display: grid;
+      gap: var(--space-2);
+    }
+    .hero-benefits li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+    .hero-benefits li::before {
+      content: "\2713";
+      color: var(--accent);
+      font-weight: 700;
+      flex: 0 0 auto;
+    }
+
+    /* Browser-mockup met website-voorbeeld */
+    .hero-mock {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform var(--dur-ui) ease, box-shadow var(--dur-ui) ease;
+    }
+    .hero-mock:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+    .hero-mock__bar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-mock__dots {
+      display: inline-flex;
+      gap: 6px;
+      flex: 0 0 auto;
+    }
+    .hero-mock__dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+    .hero-mock__url {
+      flex: 1;
+      font-size: 12px;
+      color: var(--text-soft);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      transition: color var(--dur-ui) ease, border-color var(--dur-ui) ease;
+    }
+    .hero-mock__url:hover {
+      color: var(--accent);
+      border-color: rgba(251, 191, 36, 0.4);
+    }
+    a.eyebrow {
+      cursor: pointer;
+      transition: background var(--dur-ui) ease;
+    }
+    a.eyebrow:hover {
+      background: rgba(251, 191, 36, 0.2);
+    }
+    /* Live preview-venster (iframe), responsief geschaald */
+    .hero-mock__frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background-color: var(--card);
+      /* Screenshot als terugval als het iframe niet (op tijd) laadt */
+      background-image: url("/images/werk-blueshield.jpg");
+      background-size: cover;
+      background-position: top center;
+    }
+    .hero-mock__frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 250%;
+      height: 250%;
+      border: 0;
+      transform: scale(0.4);
+      transform-origin: top left;
+    }
+    .hero-mock__caption {
+      padding: var(--space-4) var(--space-5);
+      border-top: 1px solid var(--border);
+    }
+    .hero-mock__caption .eyebrow {
+      margin-bottom: 8px;
+    }
+    .hero-mock__caption p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* Hero-kop iets kleiner zodat hij rustiger oogt (ca. 3 regels) */
+    .websites-hero h1 {
+      font-size: clamp(30px, 3.4vw, 42px);
+    }
+
+    /* Hero gegarandeerd in twee kolommen op desktop: tekst links, voorbeeld rechts */
+    @media (min-width: 901px) {
+      .hero-grid.websites-hero {
+        grid-template-columns: 1.05fr 1fr;
+        align-items: center;
+      }
+    }
+    @media (max-width: 900px) {
+      .hero-grid.websites-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -46,13 +180,36 @@
 
   <main>
     <section class="hero">
-      <div class="shell">
-        <div class="eyebrow">Websites</div>
-        <h1>Een professionele website, van A tot Z.</h1>
-        <p class="lede">Wij doen het ontwerp, de teksten en de bouw. Snel, veilig en goed geschreven. Jij levert je verhaal aan, wij maken er iets van dat klopt en snel laadt.</p>
-        <div class="cta-actions">
-          <a class="btn large" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Plan een gesprek</a>
-          <a class="btn secondary large" href="https://wa.me/+31683004208" target="_blank" rel="noopener">App ons</a>
+      <div class="shell hero-grid websites-hero">
+        <div>
+          <div class="eyebrow">Websites voor bedrijven</div>
+          <h1>Een website die vertrouwen wekt en klanten laat doorklikken.</h1>
+          <p class="lede">Wij ontwerpen, schrijven en bouwen een professionele website voor je bedrijf. Jij vertelt wat je doet, wij maken er een snelle, duidelijke site van die goed werkt op mobiel en klanten makkelijk laat bellen, appen of een afspraak plannen.</p>
+          <div class="cta-actions">
+            <a class="btn large" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Plan een gesprek</a>
+            <a class="btn secondary large" href="https://blueshield-it.nl/" target="_blank" rel="noopener">Bekijk voorbeeld</a>
+          </div>
+          <ul class="hero-benefits">
+            <li>Ontwerp, tekst en bouw geregeld</li>
+            <li>Mobielvriendelijk en snel</li>
+            <li>WhatsApp, e-mail of agenda-knoppen</li>
+          </ul>
+        </div>
+        <div class="hero-visual">
+          <div class="sparkles" aria-hidden="true"></div>
+          <div class="hero-mock">
+            <div class="hero-mock__bar">
+              <span class="hero-mock__dots"><span></span><span></span><span></span></span>
+              <a class="hero-mock__url" href="https://blueshield-it.nl/" target="_blank" rel="noopener">blueshield-it.nl</a>
+            </div>
+            <div class="hero-mock__frame">
+              <iframe id="bsPreview" src="https://blueshield-it.nl/" title="Voorbeeld: website van Blue Shield" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+            </div>
+            <div class="hero-mock__caption">
+              <a class="eyebrow" href="https://blueshield-it.nl/" target="_blank" rel="noopener">Voorbeeld website</a>
+              <p>Professioneel ontwerp, duidelijke boodschap en sterke contactknoppen.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -189,5 +346,21 @@
   </footer>
 
   <script src="/script.js"></script>
+  <script>
+    // Preview-venster: scrollen mag, maar bij wegnavigeren terug naar de homepage.
+    (function () {
+      var frame = document.getElementById('bsPreview');
+      if (!frame) return;
+      var home = 'https://blueshield-it.nl/';
+      var first = true;   // eerste load = de homepage zelf
+      var bouncing = false; // onze eigen reset, niet opnieuw resetten
+      frame.addEventListener('load', function () {
+        if (first) { first = false; return; }
+        if (bouncing) { bouncing = false; return; }
+        bouncing = true;
+        frame.src = home;
+      });
+    })();
+  </script>
 </body>
 </html>
