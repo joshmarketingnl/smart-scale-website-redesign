@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GSAP showcase | Smart-Scale</title>
+  <meta name="robots" content="noindex">
+  <link rel="preload" href="/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <style>
+    /* Kleine showcase-balk zodat duidelijk is dat dit de GSAP-demo is. */
+    .demo-bar { background: var(--accent); color: #0d0b06; text-align: center; font-weight: 700; font-size: 14px; padding: 8px 16px; }
+    .demo-bar a { color: #0d0b06; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">GSAP-showcase &middot; animaties op scroll &middot; de echte homepage staat op <a href="/">/</a></div>
+  <header class="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/images/smart-scale-logo.svg" alt="Smart-Scale logo" width="190" height="39">
+      </a>
+      <nav class="nav" aria-label="Hoofdmenu">
+        <button class="nav-toggle" aria-expanded="false" aria-label="Menu openen"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/websites">Websites</a></li>
+          <li><a href="/voice-agents">Voice agents</a></li>
+          <li><a href="/ai-op-maat">AI op maat</a></li>
+          <li><a href="/werk">Werk</a></li>
+          <li><a href="/over-ons">Over ons</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn ghost" href="https://wa.me/+31683004208" target="_blank" rel="noopener">App ons</a>
+        <a class="btn" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Plan een gesprek</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div data-anim="hero">
+          <div class="eyebrow">AI-bedrijf</div>
+          <h1>We zetten AI in waar het je bedrijf echt iets oplevert.</h1>
+          <p class="lede">Smart-Scale is een AI-bedrijf. We kijken waar AI in jouw bedrijf echt iets oplevert en bouwen het. Denk aan een professionele website, voice agents die de telefoon opnemen, of automatisering van je processen.</p>
+          <div class="cta-actions">
+            <a class="btn large" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Plan een gesprek</a>
+            <a class="btn secondary large" href="https://wa.me/+31683004208" target="_blank" rel="noopener">App ons</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="sparkles" aria-hidden="true"></div>
+          <div class="panel">
+            <img src="/images/hero-automation.svg" alt="Visualisatie van een AI-flow" width="960" height="520" style="width:100%; border-radius:12px;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gradient-surface">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Wat we doen</div>
+          <h2>AI, praktisch toegepast.</h2>
+          <p>Het meeste werk draait nu om websites, omdat AI daar het snelst iets oplevert. Daarnaast doen we voice agents en automatisering.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="card">
+            <div class="eyebrow">Hoofdaanbod</div>
+            <h3>Websites</h3>
+            <p>Een snelle, professionele website van A tot Z. Ontwerp, teksten, bouw en basis-SEO.</p>
+          </article>
+          <article class="card">
+            <h3>Voice agents</h3>
+            <p>AI-telefoonassistenten die opnemen, vragen beantwoorden en afspraken inplannen.</p>
+          </article>
+          <article class="card">
+            <h3>AI op maat</h3>
+            <p>Chatbots, koppelingen en automatiseringen voor je eigen processen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell dual">
+        <div>
+          <div class="eyebrow">Waarom met AI</div>
+          <h2>Sneller bouwen, betere kwaliteit.</h2>
+          <p>Met AI werken we sneller. Daardoor leveren we meer kwaliteit voor een eerlijke prijs. Een site die snel laadt, goed leest en goed scoort.</p>
+          <ul class="list-check">
+            <li>Wij schrijven de teksten en de koppen.</li>
+            <li>Basis-SEO en GEO, zodat je goed gevonden wordt.</li>
+            <li>Mobielvriendelijk, snel en veilig.</li>
+          </ul>
+        </div>
+        <div class="usecase-grid">
+          <article class="card">
+            <div class="eyebrow">Voorbeeld</div>
+            <h3>Snellere site na verhuizing</h3>
+            <p>GTmetrix van D naar B, PageSpeed tot 97 en de laadtijd van ruim 4 naar 2 seconden.</p>
+          </article>
+          <article class="card">
+            <h3>Geen CMS-gedoe</h3>
+            <p>Een statische site is snel en veilig en heeft weinig onderhoud nodig.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gradient-surface">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Werk</div>
+          <h2>Een paar dingen die we gebouwd hebben.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="card">
+            <img src="/images/werk-blueshield.jpg" alt="Website van Blue Shield" width="760" height="475" loading="lazy" style="width:100%; border-radius:12px; margin-bottom:14px;">
+            <div class="eyebrow">Klant</div>
+            <h3>Blue Shield</h3>
+            <p>Cybersecurity-bedrijf. Strakke, serieuze site.</p>
+          </article>
+          <article class="card">
+            <img src="/images/werk-garage.jpg" alt="Garage-demo" width="760" height="475" loading="lazy" style="width:100%; border-radius:12px; margin-bottom:14px;">
+            <div class="eyebrow">Demo</div>
+            <h3>Garagebedrijf</h3>
+            <p>AI-assistent voor een garage.</p>
+          </article>
+          <article class="card">
+            <img src="/images/werk-schoonheid.jpg" alt="Schoonheidssalon-demo" width="760" height="475" loading="lazy" style="width:100%; border-radius:12px; margin-bottom:14px;">
+            <div class="eyebrow">Demo</div>
+            <h3>Schoonheidssalon</h3>
+            <p>AI-assistent voor een salon.</p>
+          </article>
+          <article class="card">
+            <img src="/images/werk-shopify.jpg" alt="Webshop-demo" width="760" height="475" loading="lazy" style="width:100%; border-radius:12px; margin-bottom:14px;">
+            <div class="eyebrow">Demo</div>
+            <h3>Webshop</h3>
+            <p>AI-assistent voor een Shopify-webshop.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Hoe het werkt</div>
+          <h2>Van wat je hebt naar iets beters.</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><div class="marker">1</div><div><h3>Gesprek</h3><p>We kijken wat je nodig hebt.</p></div></div>
+          <div class="timeline-item"><div class="marker">2</div><div><h3>Voorstel</h3><p>Duidelijke prijs en planning.</p></div></div>
+          <div class="timeline-item"><div class="marker">3</div><div><h3>Jij levert aan</h3><p>Logo, foto's, je bestaande teksten.</p></div></div>
+          <div class="timeline-item"><div class="marker">4</div><div><h3>Eerste richting</h3><p>Design, structuur, koppen en teksten.</p></div></div>
+          <div class="timeline-item"><div class="marker">5</div><div><h3>Correctie en bouw</h3><p>Jouw feedback in een ronde, daarna afmaken.</p></div></div>
+          <div class="timeline-item"><div class="marker">6</div><div><h3>Live</h3><p>Livegang met hulp bij domein en DNS.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="cta-band">
+          <div class="section-head" style="margin-bottom: var(--space-4);">
+            <div class="eyebrow">Even sparren?</div>
+            <h2>Benieuwd wat AI voor je bedrijf kan doen?</h2>
+            <p>App ons of plan een gesprek. Geen verkooppraatje, gewoon kijken of het past.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn large" href="https://calendly.com/smart-scale-info/meeting-smart-scale">Plan een gesprek</a>
+            <a class="btn secondary large" href="https://wa.me/+31683004208" target="_blank" rel="noopener">App ons</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div>
+        <div class="brand">
+          <img class="brand-mark" src="/images/smart-scale-logo.svg" alt="Smart-Scale logo" width="190" height="39">
+        </div>
+        <p>Smart-Scale is een AI-bedrijf. We helpen bedrijven AI te implementeren, van een professionele website tot voice agents en automatisering.</p>
+        <ul class="footer-contact">
+          <li><a href="mailto:info@smart-scale.ai">info@smart-scale.ai</a></li>
+          <li><a href="https://wa.me/+31683004208" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Paginas</h3>
+        <ul class="footer-links">
+          <li><a href="/websites">Websites</a></li>
+          <li><a href="/voice-agents">Voice agents</a></li>
+          <li><a href="/ai-op-maat">AI op maat</a></li>
+          <li><a href="/werk">Werk</a></li>
+          <li><a href="/over-ons">Over ons</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <ul class="footer-legal">
+          <li><a href="/legal#privacy">Privacy</a></li>
+          <li><a href="/legal#cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/vendor/gsap.min.js"></script>
+  <script src="/vendor/ScrollTrigger.min.js"></script>
+  <script src="/script.js"></script>
+  <script>
+    (function () {
+      if (!window.gsap) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero komt binnen bij het laden, gestaffeld.
+      gsap.from('[data-anim="hero"] > *', { y: 34, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.12, delay: 0.15 });
+      gsap.from('.hero-visual', { y: 44, opacity: 0, scale: 0.96, duration: 1, ease: 'power3.out', delay: 0.4 });
+
+      // Sectiekoppen.
+      gsap.utils.toArray('.section-head').forEach(function (el) {
+        gsap.from(el.children, { y: 28, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.1,
+          scrollTrigger: { trigger: el, start: 'top 82%' } });
+      });
+
+      // Kaart-grids gestaffeld in beeld.
+      gsap.utils.toArray('.feature-grid, .usecase-grid').forEach(function (grid) {
+        gsap.from(grid.children, { y: 44, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.12,
+          scrollTrigger: { trigger: grid, start: 'top 84%' } });
+      });
+
+      // Tekstkolommen in de dual-secties.
+      gsap.utils.toArray('.dual > div').forEach(function (col) {
+        gsap.from(col, { y: 30, opacity: 0, duration: 0.7, ease: 'power3.out',
+          scrollTrigger: { trigger: col, start: 'top 84%' } });
+      });
+
+      // Tijdlijn-stappen schuiven in.
+      gsap.utils.toArray('.timeline-item').forEach(function (item) {
+        gsap.from(item, { x: -28, opacity: 0, duration: 0.6, ease: 'power3.out',
+          scrollTrigger: { trigger: item, start: 'top 88%' } });
+      });
+
+      // Parallax op de hero-visual tijdens scrollen.
+      gsap.to('.hero-visual', { yPercent: -14, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    })();
+  </script>
+</body>
+</html>
